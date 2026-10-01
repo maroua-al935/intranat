@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intranet ANAM</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+      rel="stylesheet" 
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+      crossorigin="anonymous"
+    >
+    
+    <!-- Bootstrap Icons -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    >
+    
+    <!-- Styles personnalisés pour ANAM -->
+    <style>
+      /* Variables de couleurs ANAM */
+      :root {
+        --anam-50: #fdf2f2;
+        --anam-100: #fce8e8;
+        --anam-200: #fbd5d5;
+        --anam-300: #f8b4b4;
+        --anam-400: #f98080;
+        --anam-500: #f05252;
+        --anam-600: #e02424;
+        --anam-700: #c81e1e;
+        --anam-800: #9b1c1c;
+        --anam-900: #7B283A;
+        --anam-primary: #7B283A; /* Rouge bordeaux ANAM */
+        --anam-secondary: #c81e1e;
+        --anam-light: #fdf2f2;
+        --anam-dark: #9b1c1c;
+      }
+      
+      /* Classes utilitaires personnalisées */
+      .anam-bg-primary {
+        background-color: var(--anam-primary) !important;
+      }
+      
+      .anam-bg-light {
+        background-color: var(--anam-light) !important;
+      }
+      
+      .anam-text-primary {
+        color: var(--anam-primary) !important;
+      }
+      
+      .anam-text-white {
+        color: white !important;
+      }
+      
+      .anam-border-primary {
+        border-color: var(--anam-primary) !important;
+      }
+      
+      /* Boutons ANAM */
+      .btn-anam-primary {
+        background-color: var(--anam-primary) !important;
+        border-color: var(--anam-primary) !important;
+        color: white !important;
+      }
+      
+      .btn-anam-primary:hover,
+      .btn-anam-primary:focus,
+      .btn-anam-primary:active {
+        background-color: var(--anam-dark) !important;
+        border-color: var(--anam-dark) !important;
+        color: white !important;
+      }
+      
+      .btn-anam-outline {
+        background-color: transparent !important;
+        border-color: var(--anam-primary) !important;
+        color: var(--anam-primary) !important;
+      }
+      
+      .btn-anam-outline:hover,
+      .btn-anam-outline:focus,
+      .btn-anam-outline:active {
+        background-color: var(--anam-primary) !important;
+        border-color: var(--anam-primary) !important;
+        color: white !important;
+      }
+      
+      /* Navbar ANAM */
+      .anam-navbar {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.92) !important;
+        border-bottom: 1px solid var(--anam-100);
+      }
+      
+      /* Cartes ANAM */
+      .anam-card {
+        border-radius: 0.75rem;
+        border: 1px solid var(--anam-200);
+        transition: all 0.3s ease;
+      }
+      
+      .anam-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(123, 40, 58, 0.1);
+      }
+      
+      .anam-card-header {
+        background-color: var(--anam-light);
+        border-bottom: 1px solid var(--anam-200);
+        border-radius: 0.75rem 0.75rem 0 0 !important;
+      }
+      
+      /* Ombre ANAM */
+      .anam-shadow {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      
+      .anam-shadow-lg {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      }
+      
+      /* Arrondis personnalisés */
+      .anam-rounded {
+        border-radius: 0.75rem !important;
+      }
+      
+      .anam-rounded-lg {
+        border-radius: 1rem !important;
+      }
+      
+      /* Effets de survol */
+      .anam-hover-lift:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease;
+      }
+      
+      .anam-hover-shadow:hover {
+        box-shadow: 0 4px 15px rgba(123, 40, 58, 0.15);
+        transition: box-shadow 0.2s ease;
+      }
+      
+      /* Backgrounds */
+      .anam-gradient {
+        background: linear-gradient(135deg, var(--anam-primary), var(--anam-dark)) !important;
+        color: white !important;
+      }
+      
+      .anam-gradient-light {
+        background: linear-gradient(135deg, var(--anam-50), var(--anam-100)) !important;
+      }
+      
+      /* Badges */
+      .badge-anam {
+        background-color: var(--anam-100);
+        color: var(--anam-700);
+        font-weight: 600;
+        padding: 0.25rem 0.75rem;
+      }
+      
+      /* Typographie */
+      .anam-font-serif {
+        font-family: Georgia, 'Times New Roman', serif;
+      }
+      
+      .anam-font-bold {
+        font-weight: 700;
+      }
+      
+      /* Tableaux */
+      .table-anam th {
+        background-color: var(--anam-light);
+        color: var(--anam-primary);
+        font-weight: 600;
+        border-color: var(--anam-200);
+      }
+      
+      .table-anam td {
+        border-color: var(--anam-100);
+      }
+      
+      /* Alerts */
+      .alert-anam {
+        background-color: var(--anam-50);
+        border-color: var(--anam-200);
+        color: var(--anam-700);
+        border-radius: 0.75rem;
+      }
+      
+      /* Formulaires */
+      .form-control-anam:focus {
+        border-color: var(--anam-primary);
+        box-shadow: 0 0 0 0.25rem rgba(123, 40, 58, 0.25);
+      }
+      
+      /* Utilitaires de layout */
+      .anam-min-vh-100 {
+        min-height: 100vh;
+      }
+      
+      .anam-max-w-7xl {
+        max-width: 80rem;
+      }
+      
+      /* Animation de fade in */
+      @keyframes anamFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .anam-fade-in {
+        animation: anamFadeIn 0.3s ease-out;
+      }
+      
+      /* Modal ANAM */
+      .modal-anam .modal-header {
+        background-color: var(--anam-light);
+        border-bottom: 1px solid var(--anam-200);
+      }
+      
+      .modal-anam .modal-title {
+        color: var(--anam-primary);
+        font-weight: 600;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: var(--anam-50);
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: var(--anam-300);
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--anam-400);
+      }
+    </style>
+  </head>
+  <body class="anam-bg-light">
+    <div id="root"></div>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script 
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+      crossorigin="anonymous"
+    ></script>
+    
+    <!-- Script React/Vite -->
+    <script type="module" src="/src/index.tsx"></script>
+    
+    <!-- Script d'initialisation Bootstrap -->
+    <script>
+      // Initialiser les composants Bootstrap après chargement du DOM
+      document.addEventListener('DOMContentLoaded', function() {
+        // Tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // Popovers
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+          return new bootstrap.Popover(popoverTriggerEl);
+        });
+        
+        // Toasts (si utilisés)
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        var toastList = toastElList.map(function (toastEl) {
+          return new bootstrap.Toast(toastEl);
+        });
+      });
+      
+      // Fonction utilitaire pour ajouter des classes ANAM
+      function addAnamClasses() {
+        // Ajouter des classes aux éléments existants si nécessaire
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+          if (!btn.classList.contains('btn-anam-primary')) {
+            btn.classList.add('btn-anam-primary');
+          }
+        });
+        
+        document.querySelectorAll('.navbar').forEach(nav => {
+          if (!nav.classList.contains('anam-navbar')) {
+            nav.classList.add('anam-navbar');
+          }
+        });
+        
+        document.querySelectorAll('.card').forEach(card => {
+          if (!card.classList.contains('anam-card')) {
+            card.classList.add('anam-card', 'anam-shadow');
+          }
+        });
+      }
+      
+      // Exécuter après le chargement de l'application React
+      setTimeout(addAnamClasses, 1000);
+    </script>
+  </body>
+</html>

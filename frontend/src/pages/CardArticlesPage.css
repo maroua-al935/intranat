@@ -1,0 +1,14 @@
+.nav-link.nav-ihm-pill {
+  padding: 0.15rem 0.8rem;
+  border-radius: 999px;
+  border: 2px solid rgba(46, 155, 87, 0.12);
+  color: #1f7a41;
+  background: rgba(46, 155, 87, 0.12);
+  font-weight: 600;
+}
+
+.nav-link.nav-ihm-pill:hover {
+  color: #0f5f2f;
+  background: rgba(46, 155, 87, 0.2);
+  border-color: #1f7a41;
+}

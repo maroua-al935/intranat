@@ -1,0 +1,160 @@
+/* AdminDashboard.css */
+
+:root {
+  --anam-primary: #7a2b3a; /* Bordeaux ANAM */
+  --anam-primary-dark: #5a1f2c;
+  --anam-primary-light: #9a3a4d;
+  --anam-secondary: #f8f9fa;
+  --anam-text-dark: #212529;
+  --anam-text-light: #f8f9fa;
+  --anam-border: #dee2e6;
+}
+
+/* Sidebar avec bordeaux */
+aside {
+  background-color: var(--anam-primary) !important;
+  color: var(--anam-text-light) !important;
+}
+
+/* Boutons de navigation */
+aside button {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  transition: all 0.2s ease !important;
+  border-left: 3px solid transparent !important;
+}
+
+aside button:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+}
+
+aside button.active {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+  border-left: 3px solid white !important;
+}
+
+/* Header du sidebar */
+aside .border-bottom {
+  border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Header principal */
+header.bg-white {
+  background: white !important;
+  border-bottom: 1px solid var(--anam-border) !important;
+}
+
+/* Boutons dans le contenu */
+.btn-link.text-primary {
+  color: var(--anam-primary) !important;
+}
+
+.btn-link.text-primary:hover {
+  color: var(--anam-primary-dark) !important;
+}
+
+/* Cartes du dashboard */
+div[style*="background-color: #f8f9fa"] {
+  background-color: white !important;
+  border: 1px solid var(--anam-border) !important;
+  transition: all 0.2s ease !important;
+}
+
+div[style*="background-color: #f8f9fa"]:hover {
+  border-color: var(--anam-primary) !important;
+  box-shadow: 0 2px 8px rgba(122, 43, 58, 0.1) !important;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--anam-text-dark) !important;
+}
+
+h1.h4.fw-bold, 
+h2.h2.fw-bold, 
+h2.h4.fw-semibold {
+  color: var(--anam-primary) !important;
+}
+
+/* État actif dans le sidebar */
+.bg-secondary {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Bouton de déconnexion */
+button[onclick*="onLogout"] {
+  border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-dashboard-layout {
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh;
+    flex-direction: column !important;
+  }
+
+  .admin-dashboard-layout > aside {
+    width: 100% !important;
+    min-height: 0 !important;
+    flex: 0 0 auto;
+  }
+
+  .admin-dashboard-layout > aside > div:first-child {
+    padding: 0.7rem 1rem !important;
+  }
+
+  .admin-dashboard-layout > aside > div:first-child h1 {
+    font-size: 1.1rem;
+  }
+
+  .admin-dashboard-layout > aside nav {
+    flex: 0 0 auto !important;
+    overflow-x: auto;
+    padding: 0.4rem !important;
+    scrollbar-width: thin;
+  }
+
+  .admin-dashboard-layout > aside nav > div {
+    width: max-content;
+    flex-direction: row !important;
+    gap: 0.35rem !important;
+  }
+
+  .admin-dashboard-layout > aside nav button {
+    width: auto !important;
+    flex: 0 0 auto;
+    gap: 0.45rem !important;
+    padding: 0.65rem 0.75rem !important;
+    white-space: nowrap;
+  }
+
+  .admin-dashboard-layout > aside nav > div > div.mt-auto {
+    margin: 0 0 0 auto !important;
+    padding: 0 !important;
+    flex: 0 0 auto;
+  }
+
+  .admin-dashboard-layout > .flex-grow-1 {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .admin-dashboard-layout > .flex-grow-1 > header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-inline: 1rem !important;
+  }
+
+  .admin-dashboard-layout > .flex-grow-1 > header > div {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .admin-dashboard-layout > .flex-grow-1 > main {
+    padding: 1rem !important;
+  }
+}

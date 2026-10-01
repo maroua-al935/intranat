@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+  <Document>
+    <name>GPS device</name>
+    <snippet>Created dim. févr. 27 13:47:01 2022</snippet>
+    <LookAt>
+      <gx:TimeSpan>
+        <begin>2022-02-27T12:44:12Z</begin>
+        <end>2022-02-27T12:44:12Z</end>
+      </gx:TimeSpan>
+      <longitude>6.575078</longitude>
+      <latitude>36.256229</latitude>
+      <range>1300.000000</range>
+    </LookAt>
+    <!-- Normal waypoint style -->
+    <Style id="waypoint_n">
+      <IconStyle>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/pal4/icon61.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <!-- Highlighted waypoint style -->
+    <Style id="waypoint_h">
+      <IconStyle>
+        <scale>1.2</scale>
+        <Icon>
+          <href>http://maps.google.com/mapfiles/kml/pal4/icon61.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <StyleMap id="waypoint">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#waypoint_n</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#waypoint_h</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Waypoints</name>
+      <Placemark>
+        <name>ANAM-Antenne de Constantine</name>
+        <TimeStamp><when>2022-02-27T12:44:12Z</when></TimeStamp>
+        <styleUrl>#waypoint</styleUrl>
+        <Point>
+          <coordinates>6.575078,36.256229</coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

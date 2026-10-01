@@ -1,0 +1,12 @@
+export { default as api } from './api/index';
+export { default as authAPI } from './api/authAPI';
+export { default as cardsAPI } from './api/cardsAPI';
+export { default as slidesAPI } from './api/slidesAPI';
+export { default as articlesAPI } from './api/articlesAPI';
+export { default as trashAPI } from './api/trashAPI';
+export { default as notificationsAPI } from './api/notificationsAPI';
+export { clearAuthData, clearPortalAuthData, setAuthToken, setRefreshToken, getAuthToken, isAuthenticated } from './api/index';
+export { default as ldapAPI } from './api/ldapAPI';
+ 
+ 
+export { default } from './api/index';

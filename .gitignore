@@ -1,0 +1,21 @@
+# Dependencies at every level
+node_modules/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Generated frontend output and cache
+/frontend/dist/
+/frontend/.vite/
+
+# Server uploads and database backups
+/backend/uploads/
+/backend/backup_anam/
+
+# Runtime logs and local editor/OS files
+*.log
+.DS_Store
+Thumbs.db

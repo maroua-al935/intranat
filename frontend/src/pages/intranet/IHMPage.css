@@ -1,0 +1,150 @@
+.ihm-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.ihm-header {
+  background: #ffffff;
+  border-radius: 18px;
+}
+
+.ihm-header-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ihm-title-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ihm-logo {
+  height: 56px;
+  width: auto;
+}
+
+.ihm-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ihm-back-btn {
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+}
+
+.ihm-header-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.ihm-search {
+  flex: 1;
+  min-width: 220px;
+}
+
+.ihm-search-input {
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(122, 43, 58, 0.2);
+  box-shadow: none;
+}
+
+.ihm-search-input:focus {
+  border-color: rgba(122, 43, 58, 0.6);
+  box-shadow: 0 0 0 0.2rem rgba(122, 43, 58, 0.15);
+}
+
+.ihm-table-wrapper {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.ihm-table thead th {
+  background: rgba(122, 43, 58, 0.08);
+  color: #5a1f2c;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-bottom: 0;
+  padding: 0.9rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.ihm-table tbody td {
+  padding: 0.9rem 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  color: #212529;
+  font-size: 0.85rem;
+}
+
+.ihm-table tbody tr:hover {
+  background: rgba(122, 43, 58, 0.04);
+}
+
+.ihm-table th:first-child,
+.ihm-table td:first-child {
+  width: 3.5rem;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(122, 43, 58, 0.35);
+  background: rgba(122, 43, 58, 0.08);
+  color: #7a2b3a;
+  font-size: 0.85rem;
+  transition: 0.2s ease;
+  text-decoration: none;
+}
+
+.action-button:hover {
+  background: rgba(122, 43, 58, 0.15);
+  color: #5a1f2c;
+}
+
+.ihm-table .text-break {
+  word-break: break-word;
+}
+
+.ihm-footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 576px) {
+  .ihm-header {
+    border-radius: 14px;
+  }
+
+  .ihm-header-top {
+    align-items: flex-start;
+  }
+
+  .ihm-header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .ihm-table-wrapper {
+    border-radius: 14px;
+  }
+}

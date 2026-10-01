@@ -1,0 +1,270 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { LogIn, Lock, User as UserIcon, ArrowLeft, Eye, EyeOff, Loader2 } from 'lucide-react';
+import { authAPI } from '../../services/api';
+import './AdminLoginPage.css';
+interface LoginResponse {
+  token: string;
+  user: {
+    username: string;
+    role: 'superadmin' | 'admin' | 'user';
+    canManageSlides?: boolean;
+    canManagePopup?: boolean;
+  };
+}const clearAuthData = () => {
+  localStorage.removeItem('accessToken');
+  localStorage.removeItem('refreshToken'); // Ajout important
+  localStorage.removeItem('user');
+  sessionStorage.removeItem('accessToken');
+  sessionStorage.removeItem('user');
+};
+interface AdminLoginPageProps {
+  onLogin: (loginData: { user: { username: string; role: 'superadmin' | 'admin' | 'user'; canManageSlides?: boolean; canManagePopup?: boolean }; token: string }) => void;
+}
+
+const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onLogin }) => {
+  const navigate = useNavigate();
+  
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+
+  const handleLoginSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    setIsLoading(true);
+
+    try {
+      // Appel à l'API réelle
+      const response = await authAPI.login({ 
+        username, // Votre backend attend "username"
+        password 
+      });
+      
+      const { token, user } = response.data;
+      
+      // Vérifier que l'utilisateur est admin ou superadmin
+      if (user.role !== 'admin' && user.role !== 'superadmin') {
+        setError('Accès réservé aux administrateurs');
+        return;
+      }
+      
+      // Appeler la fonction onLogin du parent (App.tsx)
+      onLogin({ user, token });
+      
+      // Stocker les données selon rememberMe
+      if (rememberMe) {
+  localStorage.setItem('accessToken', token);
+  localStorage.setItem('user', JSON.stringify(user));
+  // Stocker aussi refreshToken si disponible
+  if (response.data.refreshToken) {
+    localStorage.setItem('refreshToken', response.data.refreshToken);
+  }
+} else {
+  sessionStorage.setItem('accessToken', token);
+  sessionStorage.setItem('user', JSON.stringify(user));
+  if (response.data.refreshToken) {
+    sessionStorage.setItem('refreshToken', response.data.refreshToken);
+  }
+}
+      
+      // Rediriger vers le dashboard admin
+      navigate('/admin');
+      
+    } catch (error: any) {
+      console.error('Erreur de connexion:', error);
+      
+      // Gérer les erreurs spécifiques
+      if (error.response?.status === 401) {
+        setError('Identifiants incorrects');
+      } else if (error.response?.status === 404) {
+        setError('Utilisateur non trouvé');
+      } else if (error.message?.includes('Network Error')) {
+        setError('Impossible de se connecter au serveur. Vérifiez votre connexion.');
+      } else {
+        setError(error.response?.data?.error || 'Une erreur est survenue');
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Vérifier si l'utilisateur est déjà connecté
+  useEffect(() => {
+  const checkExistingAuth = () => {
+    let token = localStorage.getItem('accessToken');
+    let userData = localStorage.getItem('user');
+    
+    if (!token) {
+      token = sessionStorage.getItem('accessToken');
+      userData = sessionStorage.getItem('user');
+    }
+    
+    // Ajouter une vérification d'expiration basique
+    if (token && userData) {
+      try {
+        const user = JSON.parse(userData);
+        
+        // Vérifier l'expiration du token (si vous stockez l'expiration)
+        const tokenExpiry = localStorage.getItem('tokenExpiry');
+        if (tokenExpiry && new Date(tokenExpiry) < new Date()) {
+          clearAuthData();
+          return;
+        }
+        
+        if (user.role === 'admin' || user.role === 'superadmin') {
+          onLogin({ user, token });
+          navigate('/admin');
+        } else {
+          navigate('/');
+        }
+      } catch (error) {
+        console.error('Erreur lors du parsing des données:', error);
+        clearAuthData();
+      }
+    }
+  };
+  
+  checkExistingAuth();
+}, [onLogin, navigate]);
+
+  return (
+    <div className="admin-login-page">
+      {/* Bandeau supérieur */}
+      <header className="admin-login-header">
+        <div className="container">
+          <Link to="/" className="back-to-portal">
+            <ArrowLeft size={18} />
+            Retour au mes Applications
+          </Link>
+          
+          <div className="header-logo">
+            <img 
+              src="/full_logo.png"
+              alt="ANAM Logo" 
+              className="logo"
+            />
+          </div>
+        </div>
+      </header>
+
+      {/* Zone de connexion */}
+      <main className="admin-login-main">
+        <div className="container">
+          <div className="login-card-container">
+            <div className="login-card">
+              {/* En-tête de la carte */}
+              <div className="login-card-header">
+                <div className="login-icon">
+                  <Lock size={32} />
+                </div>
+                <h2>Connexion Admin</h2>
+                <p className="login-subtitle">
+                  Accès réservé aux administrateurs ANAM
+                </p>
+              </div>
+
+              {/* Formulaire */}
+              <form onSubmit={handleLoginSubmit} className="login-form">
+                <div className="form-group">
+                  <label className="form-label">
+                    <UserIcon size={16} />
+                    Identifiant administrateur
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Votre identifiant ANAM"
+                    required
+                    disabled={isLoading}
+                    autoComplete="username"
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">
+                    <Lock size={16} />
+                    Mot de passe
+                  </label>
+                  <div className="password-input-group">
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      className="form-control"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Votre mot de passe"
+                      required
+                      disabled={isLoading}
+                      autoComplete="current-password"
+                    />
+                    <button
+                      type="button"
+                      className="password-toggle"
+                      onClick={() => setShowPassword(!showPassword)}
+                      disabled={isLoading}
+                    >
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Options */}
+                <div className="form-options">
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                      disabled={isLoading}
+                    />
+                    <span>Se souvenir de moi</span>
+                  </label>
+                  
+                  <Link to="/forgot-password" className="forgot-password">
+                    Mot de passe oublié ?
+                  </Link>
+                </div>
+
+                {/* Message d'erreur */}
+                {error && (
+                  <div className="alert alert-danger">
+                    <small>{error}</small>
+                  </div>
+                )}
+
+                {/* Bouton de connexion */}
+                <button
+                  type="submit"
+                  className="login-button"
+                  disabled={isLoading || !username || !password}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="spinner" size={18} />
+                      Connexion en cours...
+                    </>
+                  ) : (
+                    <>
+                      <LogIn size={18} />
+                      Se connecter
+                    </>
+                  )}
+                </button>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+    </div>
+  );
+};
+
+export default AdminLoginPage;

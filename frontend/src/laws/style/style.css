@@ -1,0 +1,184 @@
+/* CSS Document */
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #fff9c6;
+}
+
+
+.titresommaire {
+	font-weight: bold;
+	font-size: 14px;
+}
+.texte16gras {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: right;
+}
+
+
+.soustitresommaire {
+	font-weight: normal;
+	font-size: 12px;
+	color: #006729;
+}
+
+.texte {
+	font-size: 12px;
+	color: #722643;
+}
+
+
+.signature {
+	font-size: 10px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+a{
+	text-decoration:none;
+	color: #fff9c6;
+}
+
+
+a:hover{
+	color:#8dd9bc;
+	text-decoration:underline;
+}
+.arrete {
+	font-size: 14px;
+	font-weight: bold;
+	color: #006729;
+	text-align: center;
+}
+
+.article {
+	font-weight: bold;
+	color: #006729;
+}
+.texte10 {
+	font-size: 9px;
+}
+.gras-souligne {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.chapitre {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.section {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.sous-section {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.sous-titre-annexe-1 {
+	font-weight: bold;
+}
+.sous-titre-annexe-2 {
+	font-weight: bold;
+}
+
+.sous-titre-decret-1 {
+	font-weight: bold;
+}
+.titre-sommaire-gauche {
+	font-weight: bold;
+	font-size: 10px;
+}
+.sous-titre-sommaire-gauche {
+	font-weight: bold;
+	font-size: 10px;
+	color: #006729;
+}
+.sous-titre-sommaire-gauche-violet {
+	font-weight: bold;
+	font-size: 10px;
+	color: #572381;
+}
+.sous-titre-sommaire-gauche-orange {
+	font-weight: bold;
+	font-size: 10px;
+	color: #de7e00;
+}
+.td-violet {
+	background-color: #572381;
+}
+.texte12ara {
+	font-size: 12px;
+}
+
+.td-orange {
+
+	background-color: #de7e00;
+}
+.sous-titre-sommaire-gauche-bleu {
+	font-weight: bold;
+	font-size: 10px;
+	color: #0076bd;
+}
+.td-bleu {
+	background-color: #0076bd;
+}
+.td-rouge {
+
+	background-color: #9d0c15;
+}
+.titre-sommaire-gauche-ara {
+	font-weight: bold;
+	font-size: 16px;
+	text-align: right;
+}
+.sous-titre-sommaire-gauche-ara {
+	font-weight: bold;
+	font-size: 10px;
+	color: #006729;
+	text-align: right;
+}
+.td-vert {
+	background-color: #006729;
+}
+
+.texte16ara {
+	font-size: 16px
+	}
+.sous-titre-sommaire-gauche-vert {
+
+	font-weight: bold;
+	font-size: 10px;
+	color: #006729;
+}
+.sous-titre-sommaire-gauche-rouge {
+
+	font-weight: bold;
+	font-size: 10px;
+	color: #9d0c15;
+}
+.lien-foncé {
+	color: #722643;
+	font-weight: bold;
+	font-size: 9px;
+}
+.titre-sommaire-horizontal {
+
+	font-weight: bold;
+	font-size: 12px;
+}
+.liens-utiles {
+	font-size: 10px;
+	color: #669999;
+	font-weight: bold;
+}
+.liens-utiles-ara {
+
+	font-size: 14px;
+	color: #669999;
+	font-weight: bold;
+}
+.lien-foncé-ara {
+	color: #722643;
+	font-weight: bold;
+	font-size: 14px;
+}

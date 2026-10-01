@@ -1,0 +1,367 @@
+/* Variables spécifiques à la page admin */
+:root {
+  --admin-primary: #7a2b3a;
+  --admin-primary-dark: #5a1f2c;
+  --admin-primary-light: #9a3a4d;
+  --admin-secondary: #495057;
+  --admin-light-bg: #f8f9fa;
+  --admin-dark-bg: #343a40;
+  --admin-border: #dee2e6;
+  --admin-success: #28a745;
+  --admin-danger: #dc3545;
+  --admin-warning: #ffc107;
+  --admin-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --admin-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Page de connexion admin */
+.admin-login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.admin-login-header {
+  background-color: white;
+  box-shadow: var(--admin-shadow);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.admin-login-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.back-to-portal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--admin-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.back-to-portal:hover {
+  color: var(--admin-primary-dark);
+  transform: translateX(-5px);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-logo .logo {
+  height: 60px;
+  width: auto;
+}
+
+/* Main content - CENTRÉ ET PLUS PETIT */
+.admin-login-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.login-card-container {
+  width: 100%;
+  max-width: 420px; /* Réduit la largeur max */
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Carte de connexion - PLUS PETITE */
+.login-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: var(--admin-shadow-lg);
+  overflow: hidden;
+  padding: 2rem 1.5rem; /* Réduit le padding horizontal */
+  width: 100%;
+}
+
+.login-card-header {
+  text-align: center;
+  margin-bottom: 1.5rem; /* Réduit l'espacement */
+}
+
+.login-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Réduit la taille */
+  height: 50px; /* Réduit la taille */
+  background: var(--admin-primary);
+  color: white;
+  border-radius: 50%;
+  margin-bottom: 0.75rem; /* Réduit l'espacement */
+}
+
+.login-card-header h2 {
+  color: var(--admin-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem; /* Réduit la taille de police */
+  font-weight: 600;
+}
+
+.login-subtitle {
+  color: var(--admin-secondary);
+  margin-bottom: 0;
+  font-size: 0.9rem; /* Réduit la taille de police */
+  line-height: 1.4;
+}
+
+/* Formulaire */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Réduit l'espacement */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--admin-secondary);
+  font-weight: 500;
+  font-size: 0.85rem; /* Réduit la taille de police */
+}
+
+.form-control {
+  padding: 0.625rem 0.875rem; /* Réduit le padding */
+  border: 2px solid var(--admin-border);
+  border-radius: 0.5rem;
+  font-size: 0.95rem; /* Réduit légèrement la police */
+  transition: all 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 3px rgba(122, 43, 58, 0.1);
+}
+
+.password-input-group {
+  position: relative;
+  display: flex;
+}
+
+.password-input-group .form-control {
+  flex: 1;
+  padding-right: 2.5rem; /* Réduit l'espace pour le bouton */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--admin-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  color: var(--admin-primary);
+}
+
+/* Options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* Réduit l'espacement */
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.85rem; /* Réduit la taille de police */
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 1rem; /* Réduit la taille */
+  height: 1rem; /* Réduit la taille */
+  accent-color: var(--admin-primary);
+}
+
+.forgot-password {
+  color: var(--admin-primary);
+  text-decoration: none;
+  font-size: 0.85rem; /* Réduit la taille de police */
+  transition: color 0.2s;
+}
+
+.forgot-password:hover {
+  color: var(--admin-primary-dark);
+  text-decoration: underline;
+}
+
+/* Alert */
+.alert {
+  padding: 0.625rem 0.875rem; /* Réduit le padding */
+  border-radius: 0.5rem;
+  font-size: 0.8rem; /* Réduit la taille de police */
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.2);
+  color: var(--admin-danger);
+}
+
+/* Bouton de connexion */
+.login-button {
+  background: var(--admin-primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.875rem; /* Réduit le padding */
+  font-size: 0.95rem; /* Réduit la taille de police */
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  margin-top: 0.5rem; /* Ajoute un petit espace au-dessus */
+}
+
+.login-button:hover:not(:disabled) {
+  background: var(--admin-primary-dark);
+  transform: translateY(-2px);
+}
+
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Informations de démo (optionnel si vous les ajoutez plus tard) */
+.demo-info {
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 0.75rem; /* Réduit le padding */
+  border-left: 4px solid var(--admin-warning);
+  margin-top: 1.5rem;
+  font-size: 0.8rem; /* Réduit la taille de police */
+}
+
+.demo-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem; /* Réduit l'espacement */
+  color: var(--admin-secondary);
+  font-size: 0.8rem;
+}
+
+.demo-credentials {
+  display: grid;
+  gap: 0.25rem; /* Réduit l'espacement */
+  font-size: 0.75rem; /* Réduit la taille de police */
+}
+
+.demo-credentials strong {
+  display: inline-block;
+  min-width: 80px; /* Réduit la largeur min */
+  color: var(--admin-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-login-header .container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .back-to-portal {
+    font-size: 0.9rem;
+  }
+  
+  .login-card {
+    padding: 1.5rem 1rem; /* Réduit encore plus sur mobile */
+    border-radius: 0.75rem;
+  }
+  
+  .login-card-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .login-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .form-control {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .login-button {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Cacher le texte sur mobile très petit */
+  @media (max-width: 480px) {
+    .checkbox-label span {
+      font-size: 0.8rem;
+    }
+    
+    .forgot-password {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+/* Pour les très grands écrans, on peut agrandir un peu */
+@media (min-width: 1400px) {
+  .login-card-container {
+    max-width: 450px;
+  }
+  
+  .login-card {
+    padding: 2.5rem 2rem;
+  }
+}

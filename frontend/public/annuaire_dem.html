@@ -1,0 +1,2401 @@
+<!DOCTYPE html>
+<!-- saved from url=(0106)file:///C:/Users/ANAM1446/Downloads/Annuaire%20DEM%20%E2%80%94%20Minist%C3%A8re%20de%20l'%C3%89nergie.html -->
+<html lang="fr" data-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annuaire DEM — Ministère de l'Énergie</title>
+<link href="./Annuaire DEM — Ministère de l&#39;Énergie et des mines_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --dark: #0D0F14;
+    --dark2: #141720;
+    --dark3: #1C2030;
+    --border: rgba(201,168,76,0.2);
+    --text: #E8E6E0;
+    --muted: #8A8878;
+    --accent: #2A6FDB;
+    --green: #2DBD8F;
+    --header-bg: rgba(13,15,20,0.98);
+    --controls-bg: rgba(13,15,20,0.92);
+    --shadow: rgba(0,0,0,0.4);
+  }
+
+  [data-theme="light"] {
+    --gold: #A8782A;
+    --gold-light: #C99440;
+    --dark: #F4F1EB;
+    --dark2: #FFFFFF;
+    --dark3: #F0EDE6;
+    --border: rgba(168,120,42,0.2);
+    --text: #1A1810;
+    --muted: #7A7060;
+    --accent: #1A5CC8;
+    --green: #1A9E72;
+    --header-bg: rgba(244,241,235,0.98);
+    --controls-bg: rgba(244,241,235,0.95);
+    --shadow: rgba(0,0,0,0.12);
+  }
+
+  /* THEME TOGGLE */
+  .theme-toggle {
+    width: 52px;
+    height: 28px;
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s, border-color 0.3s;
+    flex-shrink: 0;
+  }
+  .theme-toggle:hover { border-color: var(--gold); }
+  .toggle-knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  [data-theme="light"] .toggle-knob { transform: translateX(24px); }
+  .toggle-label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.4s, color 0.4s;
+  }
+
+  /* BG Pattern */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(201,168,76,0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(42,111,219,0.05) 0%, transparent 50%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.01) 40px,
+        rgba(255,255,255,0.01) 41px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    z-index: 10;
+    padding: 36px 60px 28px;
+    border-bottom: 1px solid var(--border);
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    transition: background 0.4s, border-color 0.4s;
+  }
+
+  /* Top row: emblem + identity block + badge + toggle */
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+
+  .header-emblem {
+    width: 58px;
+    height: 58px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+    box-shadow: 0 0 32px rgba(201,168,76,0.3);
+  }
+
+  .header-identity {
+    flex: 1;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Divider line between top and titles */
+  .header-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), var(--gold), var(--border), transparent);
+    margin-bottom: 20px;
+  }
+
+  /* Centered title block */
+  .header-titles {
+    text-align: center;
+  }
+
+  .header-republic {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .header-ministry {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    opacity: 0.9;
+  }
+
+  .header-annuaire {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  [data-theme="dark"] .header-annuaire {
+    background: linear-gradient(90deg, #fff 50%, var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .header-badge {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--dark);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  /* CONTROLS */
+  .controls {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 16px 60px;
+    background: var(--controls-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: background 0.4s, border-color 0.4s;
+  }
+
+  .search-wrap {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+  }
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    font-size: 16px;
+  }
+  #searchInput {
+    width: 100%;
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px 10px 40px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #searchInput:focus { border-color: var(--gold); }
+  #searchInput::placeholder { color: var(--muted); }
+
+  .view-toggle {
+    display: flex;
+    gap: 4px;
+    background: var(--dark3);
+    border-radius: 8px;
+    padding: 4px;
+    border: 1px solid var(--border);
+  }
+  .view-btn {
+    background: none;
+    border: none;
+    color: var(--muted);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+  }
+  .view-btn.active {
+    background: var(--gold);
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  .stats-bar {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .stats-bar span { color: var(--gold); font-weight: 600; }
+
+  /* MAIN */
+  main {
+    position: relative;
+    z-index: 1;
+    padding: 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* GRID VIEW */
+  #gridView {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s, background 0.4s;
+    cursor: default;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(201,168,76,0.5);
+    box-shadow: 0 12px 40px var(--shadow), 0 0 0 1px rgba(201,168,76,0.1);
+  }
+
+  .card:hover::before { opacity: 1; }
+
+  .card-code {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: rgba(201,168,76,0.1);
+    line-height: 1;
+  }
+
+  .card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .card-wilaya {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .card-name {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+  }
+
+  .card-phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--dark3);
+    border-radius: 8px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+  }
+
+  .phone-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .phone-label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .phone-number {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .phone-number.unavailable {
+    color: var(--muted);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  .card-copy {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: auto;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .card-copy:hover { color: var(--gold); background: rgba(201,168,76,0.1); }
+
+  .card-type {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 12px;
+  }
+
+  /* LIST VIEW */
+  #listView { display: none; }
+
+  .list-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 6px;
+  }
+
+  .list-table thead tr {
+    background: none;
+  }
+
+  .list-table thead th {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    padding: 8px 20px;
+    text-align: left;
+  }
+
+  .list-table tbody tr {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.2s, background 0.4s;
+    animation: fadeUp 0.3s ease both;
+  }
+
+  .list-table tbody tr:hover {
+    background: var(--dark3);
+    transform: translateX(4px);
+  }
+
+  .list-table tbody td {
+    padding: 14px 20px;
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .list-table tbody td:first-child {
+    border-left: 1px solid var(--border);
+    border-radius: 8px 0 0 8px;
+  }
+  .list-table tbody td:last-child {
+    border-right: 1px solid var(--border);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .td-code {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+    width: 60px;
+    text-align: center;
+  }
+
+  .td-wilaya { font-weight: 600; color: var(--text); }
+  .td-name { color: var(--muted); }
+
+  .td-phone {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    color: var(--text);
+  }
+
+  .td-phone.unavailable {
+    color: var(--muted);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
+  .dde-tag {
+    display: inline-block;
+    background: rgba(42,111,219,0.15);
+    border: 1px solid rgba(42,111,219,0.3);
+    color: var(--accent);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-right: 6px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* NO RESULTS */
+  #noResults {
+    display: none;
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--muted);
+  }
+  #noResults .no-icon { font-size: 48px; margin-bottom: 16px; }
+  #noResults h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text); margin-bottom: 8px; }
+
+  /* TOAST */
+  #toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  #toast.show { transform: translateY(0); opacity: 1; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    header { padding: 30px 20px 24px; }
+    .header-top { flex-wrap: wrap; gap: 12px; }
+    .controls { padding: 12px 20px; }
+    main { padding: 24px 20px; }
+    #gridView { grid-template-columns: 1fr; }
+    .header-identity { font-size: 13px; }
+    .header-republic { font-size: 17px; }
+    .header-ministry { font-size: 15px; }
+    .header-annuaire { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <!-- Top row: emblem + info + badge + toggle -->
+  <div class="header-top">
+    <div class="header-emblem">⚡</div>
+    <div class="header-identity">
+    </div>
+    <div class="header-badge">2026</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:5px;flex-shrink:0">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Changer le thème">
+        <div class="toggle-knob" id="toggleKnob">☀️</div>
+      </button>
+      <span class="toggle-label" id="toggleLabel">Clair</span>
+    </div>
+  </div>
+
+  <!-- Decorative divider -->
+  <div class="header-divider"></div>
+
+  <!-- Centered institutional titles -->
+  <div class="header-titles">
+    <div class="header-republic">République Algérienne Démocratique et Populaire</div>
+    
+    <div class="header-annuaire">Annuaire des Directeurs de l'Énergie et des Mines</div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Rechercher par wilaya, nom ou téléphone…">
+  </div>
+  <div class="view-toggle">
+    <button class="view-btn active" onclick="setView(&#39;grid&#39;)">⊞ Grille</button>
+    <button class="view-btn" onclick="setView(&#39;list&#39;)">☰ Liste</button>
+  </div>
+  <div class="stats-bar" id="statsBar">Affichage de <span id="countDisplay">74</span> entrées</div>
+</div>
+
+<main>
+  <div id="gridView" style="display: grid;"><div class="card" style="animation-delay: 0s;">
+      <div class="card-code">01</div>
+      <div class="card-badge">📍 W-01</div>
+      <div class="card-wilaya">Adrar</div>
+      <div class="card-name">👤 DJABI TAYEB</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 70 20 36</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 70 20 36&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.03s;">
+      <div class="card-code">02</div>
+      <div class="card-badge">📍 W-02</div>
+      <div class="card-wilaya">Chlef</div>
+      <div class="card-name">👤 DOUIDI OMAR</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 20 57 01</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 20 57 01&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.06s;">
+      <div class="card-code">03</div>
+      <div class="card-badge">📍 W-03</div>
+      <div class="card-wilaya">Laghouat</div>
+      <div class="card-name">👤 BRAHIMI KAMEL</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 43 51 35</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 43 51 35&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.09s;">
+      <div class="card-code">04</div>
+      <div class="card-badge">📍 W-04</div>
+      <div class="card-wilaya">Oum El Bouaghi</div>
+      <div class="card-name">👤 RAHMANI MOURAD</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 09 22 02</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 09 22 02&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.12s;">
+      <div class="card-code">05</div>
+      <div class="card-badge">📍 W-05</div>
+      <div class="card-wilaya">Batna</div>
+      <div class="card-name">👤 HAMCHI ABDELMALEK</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 39 81 27</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 39 81 27&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.15s;">
+      <div class="card-code">06</div>
+      <div class="card-badge">📍 W-06</div>
+      <div class="card-wilaya">Bejaïa</div>
+      <div class="card-name">👤 BENSLIMANE MOULED</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 67 98 78</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 67 98 78&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.18s;">
+      <div class="card-code">07</div>
+      <div class="card-badge">📍 W-07</div>
+      <div class="card-wilaya">Biskra</div>
+      <div class="card-name">👤 BOUKHARI ABDELAZIZ</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 76 60 00</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 76 60 00&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.21s;">
+      <div class="card-code">08</div>
+      <div class="card-badge">📍 W-08</div>
+      <div class="card-wilaya">Béchar</div>
+      <div class="card-name">👤 ACHOUR KAMEL</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 15 70 77</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 15 70 77&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.24s;">
+      <div class="card-code">09</div>
+      <div class="card-badge">📍 W-09</div>
+      <div class="card-wilaya">Blida</div>
+      <div class="card-name">👤 MEKLATI HANAN</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0670 18 83 69</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0670 18 83 69&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.27s;">
+      <div class="card-code">10</div>
+      <div class="card-badge">📍 W-10</div>
+      <div class="card-wilaya">Bouira</div>
+      <div class="card-name">👤 BOUNADJATE LYES</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 23 35 96</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 23 35 96&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.3s;">
+      <div class="card-code">11</div>
+      <div class="card-badge">📍 W-11</div>
+      <div class="card-wilaya">Tamanrasset</div>
+      <div class="card-name">👤 BOURETATA TAHER</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0671 31 81 36</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0671 31 81 36&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.33s;">
+      <div class="card-code">12</div>
+      <div class="card-badge">📍 W-12</div>
+      <div class="card-wilaya">Tébessa</div>
+      <div class="card-name">👤 KERSAS AISSA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 04 25 56</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 04 25 56&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.36s;">
+      <div class="card-code">13</div>
+      <div class="card-badge">📍 W-13</div>
+      <div class="card-wilaya">Tlemcen</div>
+      <div class="card-name">👤 MESSSAOUDI ABDELOUAHAB</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 64 31 80</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 64 31 80&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.39s;">
+      <div class="card-code">14</div>
+      <div class="card-badge">📍 W-14</div>
+      <div class="card-wilaya">Tiaret</div>
+      <div class="card-name">👤 SEGHEIR KHADIDJA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 63 20 03</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 63 20 03&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.42s;">
+      <div class="card-code">15</div>
+      <div class="card-badge">📍 W-15</div>
+      <div class="card-wilaya">Tizi Ouzou</div>
+      <div class="card-name">👤 BRAHAMI ABDELKAMEL</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 15 23 14</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 15 23 14&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.45s;">
+      <div class="card-code">16</div>
+      <div class="card-badge">📍 W-16</div>
+      <div class="card-wilaya">Alger</div>
+      <div class="card-name">👤 AIRECHE ABDELGHANI</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 50 25 22</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 50 25 22&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.48s;">
+      <div class="card-code">17</div>
+      <div class="card-badge">📍 W-17</div>
+      <div class="card-wilaya">Djelfa</div>
+      <div class="card-name">👤 BENDIDA EL ABED NESRINE</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 35 32 26</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 35 32 26&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">18</div>
+      <div class="card-badge">📍 W-18</div>
+      <div class="card-wilaya">Jijel</div>
+      <div class="card-name">👤 HAMMA SAIDA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 98 30 03</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 98 30 03&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">19</div>
+      <div class="card-badge">📍 W-19</div>
+      <div class="card-wilaya">Sétif</div>
+      <div class="card-name">👤 CHAOUCHE MOHAMED</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 71 56 48</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 71 56 48&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">20</div>
+      <div class="card-badge">📍 W-20</div>
+      <div class="card-wilaya">Saïda</div>
+      <div class="card-name">👤 BOUCHAOUR ABBES ABDELATIF</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 10 85 77</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 10 85 77&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">21</div>
+      <div class="card-badge">📍 W-21</div>
+      <div class="card-wilaya">Skikda</div>
+      <div class="card-name">👤 GHOMRI HADEF</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 98 78 18</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 98 78 18&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">22</div>
+      <div class="card-badge">📍 W-22</div>
+      <div class="card-wilaya">Sidi Bel Abbès</div>
+      <div class="card-name">👤 RAHMANI MAAFA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 97 52 35</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 97 52 35&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">23</div>
+      <div class="card-badge">📍 W-23</div>
+      <div class="card-wilaya">Annaba</div>
+      <div class="card-name">👤 MAAFA ABDELHAMID</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 54 81 79</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 54 81 79&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">24</div>
+      <div class="card-badge">📍 W-24</div>
+      <div class="card-wilaya">Guelma</div>
+      <div class="card-name">👤 FERHATI AMMAR</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 98 19 14</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 98 19 14&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">25</div>
+      <div class="card-badge">📍 W-25</div>
+      <div class="card-wilaya">Constantine</div>
+      <div class="card-name">👤 DJARI ALLAOUA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 98 22 53</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 98 22 53&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">26</div>
+      <div class="card-badge">📍 W-26</div>
+      <div class="card-wilaya">Médéa</div>
+      <div class="card-name">👤 ZAIDI TAYEB</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 18 26 15</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 18 26 15&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">27</div>
+      <div class="card-badge">📍 W-27</div>
+      <div class="card-wilaya">Mostaganem</div>
+      <div class="card-name">👤 OUASSIF SEDDIK</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 49 72 31</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 49 72 31&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">28</div>
+      <div class="card-badge">📍 W-28</div>
+      <div class="card-wilaya">M'Sila</div>
+      <div class="card-name">👤 NASRI ALI</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 98 90 07</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 98 90 07&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">29</div>
+      <div class="card-badge">📍 W-29</div>
+      <div class="card-wilaya">Mascara</div>
+      <div class="card-name">👤 BERBAOUI NOUREDDINE</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 57 36 33</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 57 36 33&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">30</div>
+      <div class="card-badge">📍 W-30</div>
+      <div class="card-wilaya">Ouargla</div>
+      <div class="card-name">👤 BOUDJELA MILOUD</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 69 06 19</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 69 06 19&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">31</div>
+      <div class="card-badge">📍 W-31</div>
+      <div class="card-wilaya">Oran</div>
+      <div class="card-name">👤 ARIBI HOUSSEYN</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 16 21 72</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 16 21 72&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">32</div>
+      <div class="card-badge">📍 W-32</div>
+      <div class="card-wilaya">El Bayadh</div>
+      <div class="card-name">👤 BENCHEHIDA HABIB</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 83 59 78</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 83 59 78&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">33</div>
+      <div class="card-badge">📍 W-33</div>
+      <div class="card-wilaya">Illizi</div>
+      <div class="card-name">👤 BOUKHELKHAL KAMEL</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 38 00 77</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 38 00 77&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">34</div>
+      <div class="card-badge">📍 W-34</div>
+      <div class="card-wilaya">Bordj Bou Arreridj</div>
+      <div class="card-name">👤 BOUKERICHA SALIM</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 94 26 17</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 94 26 17&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">35</div>
+      <div class="card-badge">📍 W-35</div>
+      <div class="card-wilaya">Boumerdès</div>
+      <div class="card-name">👤 OUHIB FATIHA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 70 60 22</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 70 60 22&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">36</div>
+      <div class="card-badge">📍 W-36</div>
+      <div class="card-wilaya">El Tarf</div>
+      <div class="card-name">👤 SEHILI ZOHIR</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 38 71 24</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 38 71 24&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">37</div>
+      <div class="card-badge">📍 W-37</div>
+      <div class="card-wilaya">Tindouf</div>
+      <div class="card-name">👤 BENABDELKADER MUSTAPHA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 22 32 11</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 22 32 11&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">38</div>
+      <div class="card-badge">📍 W-38</div>
+      <div class="card-wilaya">Tissemsilt</div>
+      <div class="card-name">👤 BOULARBEH HAMZA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 39 54 51</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 39 54 51&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">39</div>
+      <div class="card-badge">📍 W-39</div>
+      <div class="card-wilaya">El Oued</div>
+      <div class="card-name">👤 AHMED BEN AZZEDDINE</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 12 27 78</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 12 27 78&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">40</div>
+      <div class="card-badge">📍 W-40</div>
+      <div class="card-wilaya">Khenchela</div>
+      <div class="card-name">👤 MERDAOUI MOHAMED LAID</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 53 16 21</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 53 16 21&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">41</div>
+      <div class="card-badge">📍 W-41</div>
+      <div class="card-wilaya">Souk Ahras</div>
+      <div class="card-name">👤 ACHOURI MOHAMED</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 30 17 27</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 30 17 27&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">42</div>
+      <div class="card-badge">📍 W-42</div>
+      <div class="card-wilaya">Tipaza</div>
+      <div class="card-name">👤 BENSALEM FARIDA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 21 29 26</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 21 29 26&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">43</div>
+      <div class="card-badge">📍 W-43</div>
+      <div class="card-wilaya">Mila</div>
+      <div class="card-name">👤 NOUHED GHENNAM</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 69 25 67</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 69 25 67&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">44</div>
+      <div class="card-badge">📍 W-44</div>
+      <div class="card-wilaya">Aïn Defla</div>
+      <div class="card-name">👤 OUFFA ABDELKADER</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 97 07 45</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 97 07 45&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">45</div>
+      <div class="card-badge">📍 W-45</div>
+      <div class="card-wilaya">Naâma</div>
+      <div class="card-name">👤 MEHANNI REDA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 16 21 32</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 16 21 32&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">46</div>
+      <div class="card-badge">📍 W-46</div>
+      <div class="card-wilaya">Aïn Témouchent</div>
+      <div class="card-name">👤 ABBOU TOURIA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 47 64 89</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 47 64 89&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">47</div>
+      <div class="card-badge">📍 W-47</div>
+      <div class="card-wilaya">Ghardaïa</div>
+      <div class="card-name">👤 AYE ABDELOUAHAB</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 39 31 55</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 39 31 55&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">48</div>
+      <div class="card-badge">📍 W-48</div>
+      <div class="card-wilaya">Relizane</div>
+      <div class="card-name">👤 TSHOUAR SIDI MOHAMED</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 46 83 55</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 46 83 55&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">49</div>
+      <div class="card-badge">📍 W-49</div>
+      <div class="card-wilaya">Timimoun</div>
+      <div class="card-name">👤 TAROUAYA ABDELHAKIM</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 65 26 52</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 65 26 52&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">50</div>
+      <div class="card-badge">📍 W-50</div>
+      <div class="card-wilaya">Bordj Badji Mokhtar</div>
+      <div class="card-name">👤 BENHARZALLAH LAZHAR</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 14 45 50</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 14 45 50&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">51</div>
+      <div class="card-badge">📍 W-51</div>
+      <div class="card-wilaya">Ouled Djellal</div>
+      <div class="card-name">👤 BEDIAR EL HACHEMI</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 66 44 11</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 66 44 11&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">52</div>
+      <div class="card-badge">📍 W-52</div>
+      <div class="card-wilaya">Béni Abbès</div>
+      <div class="card-name">👤 TOUIL MOHAMED</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 09 26 31</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 09 26 31&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">53</div>
+      <div class="card-badge">📍 W-53</div>
+      <div class="card-wilaya">In Salah</div>
+      <div class="card-name">👤 BALDJILALI ABDELHAKIM</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 17 39 33</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 17 39 33&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">54</div>
+      <div class="card-badge">📍 W-54</div>
+      <div class="card-wilaya">In Guezzam</div>
+      <div class="card-name">👤 SAAI MUSTAPHA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0671 32 35 57</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0671 32 35 57&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">55</div>
+      <div class="card-badge">📍 W-55</div>
+      <div class="card-wilaya">Touggourt</div>
+      <div class="card-name">👤 ANNAN ABDEL KAMEL</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 44 58 56</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 44 58 56&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">56</div>
+      <div class="card-badge">📍 W-56</div>
+      <div class="card-wilaya">Djanet</div>
+      <div class="card-name">👤 MAHAMMED SEROURI YASSINE</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 38 09 00</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 38 09 00&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">57</div>
+      <div class="card-badge">📍 W-57</div>
+      <div class="card-wilaya">El M'Ghair</div>
+      <div class="card-name">👤 BAAIRA MOHAMED</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 97 79 52</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 97 79 52&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">58</div>
+      <div class="card-badge">📍 W-58</div>
+      <div class="card-wilaya">El Meniaa</div>
+      <div class="card-name">👤 BEN MESSAOUD MILOUD</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 84 85 65</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 84 85 65&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">59</div>
+      <div class="card-badge">📍 W-59</div>
+      <div class="card-wilaya">Aflou</div>
+      <div class="card-name">👤 HARROUZ TAHAR</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 54 74 73</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 54 74 73&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">60</div>
+      <div class="card-badge">📍 W-60</div>
+      <div class="card-wilaya">Aïn Oussera</div>
+      <div class="card-name">👤 BOUAICHA NOUR EDDINE</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 35 99 29</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 35 99 29&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">61</div>
+      <div class="card-badge">📍 W-61</div>
+      <div class="card-wilaya">Barika</div>
+      <div class="card-name">👤 MOUSSAOUI ABDELMADJID</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 53 47 69</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 53 47 69&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">62</div>
+      <div class="card-badge">📍 W-62</div>
+      <div class="card-wilaya">Bir el-Ater</div>
+      <div class="card-name">👤 pas encore installé</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number unavailable">Non installé</div>
+        </div>
+        
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">63</div>
+      <div class="card-badge">📍 W-63</div>
+      <div class="card-wilaya">Bou Saâda</div>
+      <div class="card-name">👤 BOUADLA HAMID</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 98 16 30</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 98 16 30&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">64</div>
+      <div class="card-badge">📍 W-64</div>
+      <div class="card-wilaya">El Abiodh Sidi Cheikh</div>
+      <div class="card-name">👤 BELAIB FARID</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 75 67 59</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 75 67 59&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">65</div>
+      <div class="card-badge">📍 W-65</div>
+      <div class="card-wilaya">El Aricha</div>
+      <div class="card-name">👤 non encore installé</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number unavailable">Non installé</div>
+        </div>
+        
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">66</div>
+      <div class="card-badge">📍 W-66</div>
+      <div class="card-wilaya">El Kantara</div>
+      <div class="card-name">👤 pas encore installé</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number unavailable">Non installé</div>
+        </div>
+        
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">67</div>
+      <div class="card-badge">📍 W-67</div>
+      <div class="card-wilaya">Ksar Chellala</div>
+      <div class="card-name">👤 AMIRI NAIMI</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 63 02 03</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 63 02 03&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">68</div>
+      <div class="card-badge">📍 W-68</div>
+      <div class="card-wilaya">Ksar El Boukhari</div>
+      <div class="card-name">👤 pas encore installé</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number unavailable">Non installé</div>
+        </div>
+        
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">69</div>
+      <div class="card-badge">📍 W-69</div>
+      <div class="card-wilaya">Messaad</div>
+      <div class="card-name">👤 BOUTOUBAT MAHFOUD</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 35 23 50</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 35 23 50&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">DDE</div>
+      <div class="card-badge">🏢 DDE</div>
+      <div class="card-wilaya">Sidi Abdellah</div>
+      <div class="card-name">👤 MEZGHANNA OUSSAMA</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 97 63 74</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 97 63 74&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">DDE</div>
+      <div class="card-badge">🏢 DDE</div>
+      <div class="card-wilaya">Draâ Errich</div>
+      <div class="card-name">👤 KERMADI ABDELMADJID</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0670 12 82 24</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0670 12 82 24&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">DDE</div>
+      <div class="card-badge">🏢 DDE</div>
+      <div class="card-wilaya">Ali Mendjeli</div>
+      <div class="card-name">👤 MAKHLOUFI DJAMEL</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 96 67 34</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 96 67 34&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">DDE</div>
+      <div class="card-badge">🏢 DDE</div>
+      <div class="card-wilaya">Bouinan</div>
+      <div class="card-name">👤 MEKLATI HANAN</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0670 18 70 04</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0670 18 70 04&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div><div class="card" style="animation-delay: 0.5s;">
+      <div class="card-code">DDE</div>
+      <div class="card-badge">🏢 DDE</div>
+      <div class="card-wilaya">Debdeb</div>
+      <div class="card-name">👤 BELKHIRI ALI</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ">0661 38 00 79</div>
+        </div>
+        <button class="card-copy" onclick="copyPhone(&#39;0661 38 00 79&#39;)" title="Copier">⧉</button>
+      </div>
+      
+    </div></div>
+  <div id="listView" style="display: none;">
+    <table class="list-table">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Wilaya</th>
+          <th>Directeur (DEM)</th>
+          <th>N° Téléphone Mobile</th>
+        </tr>
+      </thead>
+      <tbody id="listBody"><tr style="animation-delay: 0s;">
+      <td class="td-code">01</td>
+      <td class="td-wilaya">Adrar</td>
+      <td class="td-name">DJABI TAYEB</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 70 20 36&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 70 20 36
+      </td>
+    </tr><tr style="animation-delay: 0.02s;">
+      <td class="td-code">02</td>
+      <td class="td-wilaya">Chlef</td>
+      <td class="td-name">DOUIDI OMAR</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 20 57 01&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 20 57 01
+      </td>
+    </tr><tr style="animation-delay: 0.04s;">
+      <td class="td-code">03</td>
+      <td class="td-wilaya">Laghouat</td>
+      <td class="td-name">BRAHIMI KAMEL</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 43 51 35&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 43 51 35
+      </td>
+    </tr><tr style="animation-delay: 0.06s;">
+      <td class="td-code">04</td>
+      <td class="td-wilaya">Oum El Bouaghi</td>
+      <td class="td-name">RAHMANI MOURAD</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 09 22 02&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 09 22 02
+      </td>
+    </tr><tr style="animation-delay: 0.08s;">
+      <td class="td-code">05</td>
+      <td class="td-wilaya">Batna</td>
+      <td class="td-name">HAMCHI ABDELMALEK</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 39 81 27&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 39 81 27
+      </td>
+    </tr><tr style="animation-delay: 0.1s;">
+      <td class="td-code">06</td>
+      <td class="td-wilaya">Bejaïa</td>
+      <td class="td-name">BENSLIMANE MOULED</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 67 98 78&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 67 98 78
+      </td>
+    </tr><tr style="animation-delay: 0.12s;">
+      <td class="td-code">07</td>
+      <td class="td-wilaya">Biskra</td>
+      <td class="td-name">BOUKHARI ABDELAZIZ</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 76 60 00&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 76 60 00
+      </td>
+    </tr><tr style="animation-delay: 0.14s;">
+      <td class="td-code">08</td>
+      <td class="td-wilaya">Béchar</td>
+      <td class="td-name">ACHOUR KAMEL</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 15 70 77&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 15 70 77
+      </td>
+    </tr><tr style="animation-delay: 0.16s;">
+      <td class="td-code">09</td>
+      <td class="td-wilaya">Blida</td>
+      <td class="td-name">MEKLATI HANAN</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0670 18 83 69&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0670 18 83 69
+      </td>
+    </tr><tr style="animation-delay: 0.18s;">
+      <td class="td-code">10</td>
+      <td class="td-wilaya">Bouira</td>
+      <td class="td-name">BOUNADJATE LYES</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 23 35 96&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 23 35 96
+      </td>
+    </tr><tr style="animation-delay: 0.2s;">
+      <td class="td-code">11</td>
+      <td class="td-wilaya">Tamanrasset</td>
+      <td class="td-name">BOURETATA TAHER</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0671 31 81 36&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0671 31 81 36
+      </td>
+    </tr><tr style="animation-delay: 0.22s;">
+      <td class="td-code">12</td>
+      <td class="td-wilaya">Tébessa</td>
+      <td class="td-name">KERSAS AISSA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 04 25 56&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 04 25 56
+      </td>
+    </tr><tr style="animation-delay: 0.24s;">
+      <td class="td-code">13</td>
+      <td class="td-wilaya">Tlemcen</td>
+      <td class="td-name">MESSSAOUDI ABDELOUAHAB</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 64 31 80&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 64 31 80
+      </td>
+    </tr><tr style="animation-delay: 0.26s;">
+      <td class="td-code">14</td>
+      <td class="td-wilaya">Tiaret</td>
+      <td class="td-name">SEGHEIR KHADIDJA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 63 20 03&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 63 20 03
+      </td>
+    </tr><tr style="animation-delay: 0.28s;">
+      <td class="td-code">15</td>
+      <td class="td-wilaya">Tizi Ouzou</td>
+      <td class="td-name">BRAHAMI ABDELKAMEL</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 15 23 14&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 15 23 14
+      </td>
+    </tr><tr style="animation-delay: 0.3s;">
+      <td class="td-code">16</td>
+      <td class="td-wilaya">Alger</td>
+      <td class="td-name">AIRECHE ABDELGHANI</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 50 25 22&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 50 25 22
+      </td>
+    </tr><tr style="animation-delay: 0.32s;">
+      <td class="td-code">17</td>
+      <td class="td-wilaya">Djelfa</td>
+      <td class="td-name">BENDIDA EL ABED NESRINE</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 35 32 26&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 35 32 26
+      </td>
+    </tr><tr style="animation-delay: 0.34s;">
+      <td class="td-code">18</td>
+      <td class="td-wilaya">Jijel</td>
+      <td class="td-name">HAMMA SAIDA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 98 30 03&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 98 30 03
+      </td>
+    </tr><tr style="animation-delay: 0.36s;">
+      <td class="td-code">19</td>
+      <td class="td-wilaya">Sétif</td>
+      <td class="td-name">CHAOUCHE MOHAMED</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 71 56 48&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 71 56 48
+      </td>
+    </tr><tr style="animation-delay: 0.38s;">
+      <td class="td-code">20</td>
+      <td class="td-wilaya">Saïda</td>
+      <td class="td-name">BOUCHAOUR ABBES ABDELATIF</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 10 85 77&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 10 85 77
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">21</td>
+      <td class="td-wilaya">Skikda</td>
+      <td class="td-name">GHOMRI HADEF</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 98 78 18&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 98 78 18
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">22</td>
+      <td class="td-wilaya">Sidi Bel Abbès</td>
+      <td class="td-name">RAHMANI MAAFA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 97 52 35&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 97 52 35
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">23</td>
+      <td class="td-wilaya">Annaba</td>
+      <td class="td-name">MAAFA ABDELHAMID</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 54 81 79&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 54 81 79
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">24</td>
+      <td class="td-wilaya">Guelma</td>
+      <td class="td-name">FERHATI AMMAR</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 98 19 14&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 98 19 14
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">25</td>
+      <td class="td-wilaya">Constantine</td>
+      <td class="td-name">DJARI ALLAOUA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 98 22 53&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 98 22 53
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">26</td>
+      <td class="td-wilaya">Médéa</td>
+      <td class="td-name">ZAIDI TAYEB</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 18 26 15&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 18 26 15
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">27</td>
+      <td class="td-wilaya">Mostaganem</td>
+      <td class="td-name">OUASSIF SEDDIK</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 49 72 31&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 49 72 31
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">28</td>
+      <td class="td-wilaya">M'Sila</td>
+      <td class="td-name">NASRI ALI</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 98 90 07&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 98 90 07
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">29</td>
+      <td class="td-wilaya">Mascara</td>
+      <td class="td-name">BERBAOUI NOUREDDINE</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 57 36 33&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 57 36 33
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">30</td>
+      <td class="td-wilaya">Ouargla</td>
+      <td class="td-name">BOUDJELA MILOUD</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 69 06 19&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 69 06 19
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">31</td>
+      <td class="td-wilaya">Oran</td>
+      <td class="td-name">ARIBI HOUSSEYN</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 16 21 72&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 16 21 72
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">32</td>
+      <td class="td-wilaya">El Bayadh</td>
+      <td class="td-name">BENCHEHIDA HABIB</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 83 59 78&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 83 59 78
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">33</td>
+      <td class="td-wilaya">Illizi</td>
+      <td class="td-name">BOUKHELKHAL KAMEL</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 38 00 77&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 38 00 77
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">34</td>
+      <td class="td-wilaya">Bordj Bou Arreridj</td>
+      <td class="td-name">BOUKERICHA SALIM</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 94 26 17&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 94 26 17
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">35</td>
+      <td class="td-wilaya">Boumerdès</td>
+      <td class="td-name">OUHIB FATIHA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 70 60 22&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 70 60 22
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">36</td>
+      <td class="td-wilaya">El Tarf</td>
+      <td class="td-name">SEHILI ZOHIR</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 38 71 24&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 38 71 24
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">37</td>
+      <td class="td-wilaya">Tindouf</td>
+      <td class="td-name">BENABDELKADER MUSTAPHA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 22 32 11&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 22 32 11
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">38</td>
+      <td class="td-wilaya">Tissemsilt</td>
+      <td class="td-name">BOULARBEH HAMZA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 39 54 51&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 39 54 51
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">39</td>
+      <td class="td-wilaya">El Oued</td>
+      <td class="td-name">AHMED BEN AZZEDDINE</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 12 27 78&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 12 27 78
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">40</td>
+      <td class="td-wilaya">Khenchela</td>
+      <td class="td-name">MERDAOUI MOHAMED LAID</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 53 16 21&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 53 16 21
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">41</td>
+      <td class="td-wilaya">Souk Ahras</td>
+      <td class="td-name">ACHOURI MOHAMED</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 30 17 27&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 30 17 27
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">42</td>
+      <td class="td-wilaya">Tipaza</td>
+      <td class="td-name">BENSALEM FARIDA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 21 29 26&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 21 29 26
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">43</td>
+      <td class="td-wilaya">Mila</td>
+      <td class="td-name">NOUHED GHENNAM</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 69 25 67&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 69 25 67
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">44</td>
+      <td class="td-wilaya">Aïn Defla</td>
+      <td class="td-name">OUFFA ABDELKADER</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 97 07 45&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 97 07 45
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">45</td>
+      <td class="td-wilaya">Naâma</td>
+      <td class="td-name">MEHANNI REDA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 16 21 32&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 16 21 32
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">46</td>
+      <td class="td-wilaya">Aïn Témouchent</td>
+      <td class="td-name">ABBOU TOURIA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 47 64 89&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 47 64 89
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">47</td>
+      <td class="td-wilaya">Ghardaïa</td>
+      <td class="td-name">AYE ABDELOUAHAB</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 39 31 55&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 39 31 55
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">48</td>
+      <td class="td-wilaya">Relizane</td>
+      <td class="td-name">TSHOUAR SIDI MOHAMED</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 46 83 55&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 46 83 55
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">49</td>
+      <td class="td-wilaya">Timimoun</td>
+      <td class="td-name">TAROUAYA ABDELHAKIM</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 65 26 52&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 65 26 52
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">50</td>
+      <td class="td-wilaya">Bordj Badji Mokhtar</td>
+      <td class="td-name">BENHARZALLAH LAZHAR</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 14 45 50&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 14 45 50
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">51</td>
+      <td class="td-wilaya">Ouled Djellal</td>
+      <td class="td-name">BEDIAR EL HACHEMI</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 66 44 11&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 66 44 11
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">52</td>
+      <td class="td-wilaya">Béni Abbès</td>
+      <td class="td-name">TOUIL MOHAMED</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 09 26 31&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 09 26 31
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">53</td>
+      <td class="td-wilaya">In Salah</td>
+      <td class="td-name">BALDJILALI ABDELHAKIM</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 17 39 33&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 17 39 33
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">54</td>
+      <td class="td-wilaya">In Guezzam</td>
+      <td class="td-name">SAAI MUSTAPHA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0671 32 35 57&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0671 32 35 57
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">55</td>
+      <td class="td-wilaya">Touggourt</td>
+      <td class="td-name">ANNAN ABDEL KAMEL</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 44 58 56&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 44 58 56
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">56</td>
+      <td class="td-wilaya">Djanet</td>
+      <td class="td-name">MAHAMMED SEROURI YASSINE</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 38 09 00&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 38 09 00
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">57</td>
+      <td class="td-wilaya">El M'Ghair</td>
+      <td class="td-name">BAAIRA MOHAMED</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 97 79 52&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 97 79 52
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">58</td>
+      <td class="td-wilaya">El Meniaa</td>
+      <td class="td-name">BEN MESSAOUD MILOUD</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 84 85 65&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 84 85 65
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">59</td>
+      <td class="td-wilaya">Aflou</td>
+      <td class="td-name">HARROUZ TAHAR</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 54 74 73&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 54 74 73
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">60</td>
+      <td class="td-wilaya">Aïn Oussera</td>
+      <td class="td-name">BOUAICHA NOUR EDDINE</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 35 99 29&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 35 99 29
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">61</td>
+      <td class="td-wilaya">Barika</td>
+      <td class="td-name">MOUSSAOUI ABDELMADJID</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 53 47 69&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 53 47 69
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">62</td>
+      <td class="td-wilaya">Bir el-Ater</td>
+      <td class="td-name">pas encore installé</td>
+      <td class="td-phone unavailable">
+        — Non installé
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">63</td>
+      <td class="td-wilaya">Bou Saâda</td>
+      <td class="td-name">BOUADLA HAMID</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 98 16 30&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 98 16 30
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">64</td>
+      <td class="td-wilaya">El Abiodh Sidi Cheikh</td>
+      <td class="td-name">BELAIB FARID</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 75 67 59&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 75 67 59
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">65</td>
+      <td class="td-wilaya">El Aricha</td>
+      <td class="td-name">non encore installé</td>
+      <td class="td-phone unavailable">
+        — Non installé
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">66</td>
+      <td class="td-wilaya">El Kantara</td>
+      <td class="td-name">pas encore installé</td>
+      <td class="td-phone unavailable">
+        — Non installé
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">67</td>
+      <td class="td-wilaya">Ksar Chellala</td>
+      <td class="td-name">AMIRI NAIMI</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 63 02 03&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 63 02 03
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">68</td>
+      <td class="td-wilaya">Ksar El Boukhari</td>
+      <td class="td-name">pas encore installé</td>
+      <td class="td-phone unavailable">
+        — Non installé
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">69</td>
+      <td class="td-wilaya">Messaad</td>
+      <td class="td-name">BOUTOUBAT MAHFOUD</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 35 23 50&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 35 23 50
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">DDE</td>
+      <td class="td-wilaya"><span class="dde-tag">DDE</span>Sidi Abdellah</td>
+      <td class="td-name">MEZGHANNA OUSSAMA</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 97 63 74&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 97 63 74
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">DDE</td>
+      <td class="td-wilaya"><span class="dde-tag">DDE</span>Draâ Errich</td>
+      <td class="td-name">KERMADI ABDELMADJID</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0670 12 82 24&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0670 12 82 24
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">DDE</td>
+      <td class="td-wilaya"><span class="dde-tag">DDE</span>Ali Mendjeli</td>
+      <td class="td-name">MAKHLOUFI DJAMEL</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 96 67 34&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 96 67 34
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">DDE</td>
+      <td class="td-wilaya"><span class="dde-tag">DDE</span>Bouinan</td>
+      <td class="td-name">MEKLATI HANAN</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0670 18 70 04&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0670 18 70 04
+      </td>
+    </tr><tr style="animation-delay: 0.4s;">
+      <td class="td-code">DDE</td>
+      <td class="td-wilaya"><span class="dde-tag">DDE</span>Debdeb</td>
+      <td class="td-name">BELKHIRI ALI</td>
+      <td class="td-phone " onclick="copyPhone(&#39;0661 38 00 79&#39;)" style="cursor:pointer" title="Cliquer pour copier">
+        📱 0661 38 00 79
+      </td>
+    </tr></tbody>
+    </table>
+  </div>
+  <div id="noResults" style="display: none;">
+    <div class="no-icon">🔎</div>
+    <h3>Aucun résultat trouvé</h3>
+    <p>Essayez un autre terme de recherche</p>
+  </div>
+</main>
+
+<div id="toast">📋 Numéro copié !</div>
+
+<script>
+const data = [
+  { code: "01", wilaya: "Adrar", tel: "0661 70 20 36", nom: "DJABI TAYEB" },
+  { code: "02", wilaya: "Chlef", tel: "0661 20 57 01", nom: "DOUIDI OMAR" },
+  { code: "03", wilaya: "Laghouat", tel: "0661 43 51 35", nom: "BRAHIMI KAMEL" },
+  { code: "04", wilaya: "Oum El Bouaghi", tel: "0661 09 22 02", nom: "RAHMANI MOURAD" },
+  { code: "05", wilaya: "Batna", tel: "0661 39 81 27", nom: "HAMCHI ABDELMALEK" },
+  { code: "06", wilaya: "Bejaïa", tel: "0661 67 98 78", nom: "BENSLIMANE MOULED" },
+  { code: "07", wilaya: "Biskra", tel: "0661 76 60 00", nom: "BOUKHARI ABDELAZIZ" },
+  { code: "08", wilaya: "Béchar", tel: "0661 15 70 77", nom: "ACHOUR KAMEL" },
+  { code: "09", wilaya: "Blida", tel: "0670 18 83 69", nom: "MEKLATI HANAN" },
+  { code: "10", wilaya: "Bouira", tel: "0661 23 35 96", nom: "BOUNADJATE LYES" },
+  { code: "11", wilaya: "Tamanrasset", tel: "0671 31 81 36", nom: "BOURETATA TAHER" },
+  { code: "12", wilaya: "Tébessa", tel: "0661 04 25 56", nom: "KERSAS AISSA" },
+  { code: "13", wilaya: "Tlemcen", tel: "0661 64 31 80", nom: "MESSSAOUDI ABDELOUAHAB" },
+  { code: "14", wilaya: "Tiaret", tel: "0661 63 20 03", nom: "SEGHEIR KHADIDJA" },
+  { code: "15", wilaya: "Tizi Ouzou", tel: "0661 15 23 14", nom: "BRAHAMI ABDELKAMEL" },
+  { code: "16", wilaya: "Alger", tel: "0661 50 25 22", nom: "AIRECHE ABDELGHANI" },
+  { code: "17", wilaya: "Djelfa", tel: "0661 35 32 26", nom: "BENDIDA EL ABED NESRINE" },
+  { code: "18", wilaya: "Jijel", tel: "0661 98 30 03", nom: "HAMMA SAIDA" },
+  { code: "19", wilaya: "Sétif", tel: "0661 71 56 48", nom: "CHAOUCHE MOHAMED" },
+  { code: "20", wilaya: "Saïda", tel: "0661 10 85 77", nom: "BOUCHAOUR ABBES ABDELATIF" },
+  { code: "21", wilaya: "Skikda", tel: "0661 98 78 18", nom: "GHOMRI HADEF" },
+  { code: "22", wilaya: "Sidi Bel Abbès", tel: "0661 97 52 35", nom: "RAHMANI MAAFA" },
+  { code: "23", wilaya: "Annaba", tel: "0661 54 81 79", nom: "MAAFA ABDELHAMID" },
+  { code: "24", wilaya: "Guelma", tel: "0661 98 19 14", nom: "FERHATI AMMAR" },
+  { code: "25", wilaya: "Constantine", tel: "0661 98 22 53", nom: "DJARI ALLAOUA" },
+  { code: "26", wilaya: "Médéa", tel: "0661 18 26 15", nom: "ZAIDI TAYEB" },
+  { code: "27", wilaya: "Mostaganem", tel: "0661 49 72 31", nom: "OUASSIF SEDDIK" },
+  { code: "28", wilaya: "M'Sila", tel: "0661 98 90 07", nom: "NASRI ALI" },
+  { code: "29", wilaya: "Mascara", tel: "0661 57 36 33", nom: "BERBAOUI NOUREDDINE" },
+  { code: "30", wilaya: "Ouargla", tel: "0661 69 06 19", nom: "BOUDJELA MILOUD" },
+  { code: "31", wilaya: "Oran", tel: "0661 16 21 72", nom: "ARIBI HOUSSEYN" },
+  { code: "32", wilaya: "El Bayadh", tel: "0661 83 59 78", nom: "BENCHEHIDA HABIB" },
+  { code: "33", wilaya: "Illizi", tel: "0661 38 00 77", nom: "BOUKHELKHAL KAMEL" },
+  { code: "34", wilaya: "Bordj Bou Arreridj", tel: "0661 94 26 17", nom: "BOUKERICHA SALIM" },
+  { code: "35", wilaya: "Boumerdès", tel: "0661 70 60 22", nom: "OUHIB FATIHA" },
+  { code: "36", wilaya: "El Tarf", tel: "0661 38 71 24", nom: "SEHILI ZOHIR" },
+  { code: "37", wilaya: "Tindouf", tel: "0661 22 32 11", nom: "BENABDELKADER MUSTAPHA" },
+  { code: "38", wilaya: "Tissemsilt", tel: "0661 39 54 51", nom: "BOULARBEH HAMZA" },
+  { code: "39", wilaya: "El Oued", tel: "0661 12 27 78", nom: "AHMED BEN AZZEDDINE" },
+  { code: "40", wilaya: "Khenchela", tel: "0661 53 16 21", nom: "MERDAOUI MOHAMED LAID" },
+  { code: "41", wilaya: "Souk Ahras", tel: "0661 30 17 27", nom: "ACHOURI MOHAMED" },
+  { code: "42", wilaya: "Tipaza", tel: "0661 21 29 26", nom: "BENSALEM FARIDA" },
+  { code: "43", wilaya: "Mila", tel: "0661 69 25 67", nom: "NOUHED GHENNAM" },
+  { code: "44", wilaya: "Aïn Defla", tel: "0661 97 07 45", nom: "OUFFA ABDELKADER" },
+  { code: "45", wilaya: "Naâma", tel: "0661 16 21 32", nom: "MEHANNI REDA" },
+  { code: "46", wilaya: "Aïn Témouchent", tel: "0661 47 64 89", nom: "ABBOU TOURIA" },
+  { code: "47", wilaya: "Ghardaïa", tel: "0661 39 31 55", nom: "AYE ABDELOUAHAB" },
+  { code: "48", wilaya: "Relizane", tel: "0661 46 83 55", nom: "TSHOUAR SIDI MOHAMED" },
+  { code: "49", wilaya: "Timimoun", tel: "0661 65 26 52", nom: "TAROUAYA ABDELHAKIM" },
+  { code: "50", wilaya: "Bordj Badji Mokhtar", tel: "0661 14 45 50", nom: "BENHARZALLAH LAZHAR" },
+  { code: "51", wilaya: "Ouled Djellal", tel: "0661 66 44 11", nom: "BEDIAR EL HACHEMI" },
+  { code: "52", wilaya: "Béni Abbès", tel: "0661 09 26 31", nom: "TOUIL MOHAMED" },
+  { code: "53", wilaya: "In Salah", tel: "0661 17 39 33", nom: "BALDJILALI ABDELHAKIM" },
+  { code: "54", wilaya: "In Guezzam", tel: "0671 32 35 57", nom: "SAAI MUSTAPHA" },
+  { code: "55", wilaya: "Touggourt", tel: "0661 44 58 56", nom: "ANNAN ABDEL KAMEL" },
+  { code: "56", wilaya: "Djanet", tel: "0661 38 09 00", nom: "MAHAMMED SEROURI YASSINE" },
+  { code: "57", wilaya: "El M'Ghair", tel: "0661 97 79 52", nom: "BAAIRA MOHAMED" },
+  { code: "58", wilaya: "El Meniaa", tel: "0661 84 85 65", nom: "BEN MESSAOUD MILOUD" },
+  { code: "59", wilaya: "Aflou", tel: "0661 54 74 73", nom: "HARROUZ TAHAR" },
+  { code: "60", wilaya: "Aïn Oussera", tel: "0661 35 99 29", nom: "BOUAICHA NOUR EDDINE" },
+  { code: "61", wilaya: "Barika", tel: "0661 53 47 69", nom: "MOUSSAOUI ABDELMADJID" },
+  { code: "62", wilaya: "Bir el-Ater", tel: null, nom: "pas encore installé" },
+  { code: "63", wilaya: "Bou Saâda", tel: "0661 98 16 30", nom: "BOUADLA HAMID" },
+  { code: "64", wilaya: "El Abiodh Sidi Cheikh", tel: "0661 75 67 59", nom: "BELAIB FARID" },
+  { code: "65", wilaya: "El Aricha", tel: null, nom: "non encore installé" },
+  { code: "66", wilaya: "El Kantara", tel: null, nom: "pas encore installé" },
+  { code: "67", wilaya: "Ksar Chellala", tel: "0661 63 02 03", nom: "AMIRI NAIMI" },
+  { code: "68", wilaya: "Ksar El Boukhari", tel: null, nom: "pas encore installé" },
+  { code: "69", wilaya: "Messaad", tel: "0661 35 23 50", nom: "BOUTOUBAT MAHFOUD" },
+  { code: "DDE", wilaya: "Sidi Abdellah", tel: "0661 97 63 74", nom: "MEZGHANNA OUSSAMA", type: "DDE" },
+  { code: "DDE", wilaya: "Draâ Errich", tel: "0670 12 82 24", nom: "KERMADI ABDELMADJID", type: "DDE" },
+  { code: "DDE", wilaya: "Ali Mendjeli", tel: "0661 96 67 34", nom: "MAKHLOUFI DJAMEL", type: "DDE" },
+  { code: "DDE", wilaya: "Bouinan", tel: "0670 18 70 04", nom: "MEKLATI HANAN", type: "DDE" },
+  { code: "DDE", wilaya: "Debdeb", tel: "0661 38 00 79", nom: "BELKHIRI ALI", type: "DDE" },
+];
+
+let currentView = 'grid';
+let filtered = [...data];
+
+// Theme init
+const savedTheme = localStorage.getItem('dem-theme') || 'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+updateToggleUI(savedTheme);
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('dem-theme', next);
+  updateToggleUI(next);
+}
+
+function updateToggleUI(theme) {
+  const knob = document.getElementById('toggleKnob');
+  const label = document.getElementById('toggleLabel');
+  if (!knob || !label) return;
+  if (theme === 'light') {
+    knob.textContent = '☀️';
+    label.textContent = 'Clair';
+  } else {
+    knob.textContent = '🌙';
+    label.textContent = 'Sombre';
+  }
+}
+
+function render() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  filtered = data.filter(d =>
+    d.wilaya.toLowerCase().includes(q) ||
+    d.nom.toLowerCase().includes(q) ||
+    (d.tel && d.tel.includes(q)) ||
+    d.code.toString().includes(q)
+  );
+
+  document.getElementById('countDisplay').textContent = filtered.length;
+  document.getElementById('noResults').style.display = filtered.length === 0 ? 'block' : 'none';
+
+  if (currentView === 'grid') renderGrid();
+  else renderList();
+}
+
+function renderGrid() {
+  const grid = document.getElementById('gridView');
+  grid.innerHTML = '';
+  filtered.forEach((d, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.animationDelay = `${Math.min(i * 0.03, 0.5)}s`;
+    const isDDE = d.type === 'DDE';
+    const hasPhone = d.tel && d.tel !== '---';
+    card.innerHTML = `
+      <div class="card-code">${d.code}</div>
+      <div class="card-badge">${isDDE ? '🏢 DDE' : `📍 W-${d.code}`}</div>
+      <div class="card-wilaya">${d.wilaya}</div>
+      <div class="card-name">👤 ${d.nom}</div>
+      <div class="card-phone">
+        <div class="phone-icon">📱</div>
+        <div style="flex:1">
+          <div class="phone-label">Tél. professionnel</div>
+          <div class="phone-number ${hasPhone ? '' : 'unavailable'}">${hasPhone ? d.tel : 'Non installé'}</div>
+        </div>
+        ${hasPhone ? `<button class="card-copy" onclick="copyPhone('${d.tel}')" title="Copier">⧉</button>` : ''}
+      </div>
+      ${isDDE ? '<div class="card-type">Direction Départementale de l\'Énergie</div>' : ''}
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderList() {
+  const tbody = document.getElementById('listBody');
+  tbody.innerHTML = '';
+  filtered.forEach((d, i) => {
+    const tr = document.createElement('tr');
+    tr.style.animationDelay = `${Math.min(i * 0.02, 0.4)}s`;
+    const isDDE = d.type === 'DDE';
+    const hasPhone = d.tel && d.tel !== '---';
+    tr.innerHTML = `
+      <td class="td-code">${d.code}</td>
+      <td class="td-wilaya">${isDDE ? '<span class="dde-tag">DDE</span>' : ''}${d.wilaya}</td>
+      <td class="td-name">${d.nom}</td>
+      <td class="td-phone ${hasPhone ? '' : 'unavailable'}" ${hasPhone ? `onclick="copyPhone('${d.tel}')" style="cursor:pointer" title="Cliquer pour copier"` : ''}>
+        ${hasPhone ? `📱 ${d.tel}` : '— Non installé'}
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('gridView').style.display = v === 'grid' ? 'grid' : 'none';
+  document.getElementById('listView').style.display = v === 'list' ? 'block' : 'none';
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(v === 'grid' ? 'grill' : 'list'));
+  });
+  document.querySelectorAll('.view-btn')[v === 'grid' ? 0 : 1].classList.add('active');
+  document.querySelectorAll('.view-btn')[v === 'grid' ? 1 : 0].classList.remove('active');
+  render();
+}
+
+function copyPhone(tel) {
+  navigator.clipboard.writeText(tel).then(() => {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+  });
+}
+
+document.getElementById('searchInput').addEventListener('input', render);
+
+// Init
+render();
+updateToggleUI(savedTheme);
+</script>
+
+
+</body></html>
